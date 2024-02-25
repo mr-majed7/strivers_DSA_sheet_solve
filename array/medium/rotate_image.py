@@ -10,4 +10,6 @@ class Solution:
                 matrix[r][c],matrix[c][r] = matrix[c][r],matrix[r][c] #Transpose The Matrix
 
         for r in matrix:
-            r.reverse() #Reverse The Rows
+            r.reverse()
+
+
