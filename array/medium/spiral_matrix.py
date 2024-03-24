@@ -1,37 +1,40 @@
-#https://leetcode.com/problems/spiral-matrix/description/
+# https://leetcode.com/problems/spiral-matrix/description/
+
 
 class Solution:
+    """ """
+
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-            n = len(matrix)
-            m = len(matrix[0])
+        n = len(matrix)
+        m = len(matrix[0])
 
-            left = 0
-            right = m-1
-            top = 0
-            bottom = n-1
-            result = []
-            
-            while (top <= bottom and left <= right):
-                for i in range(left,right+1):
-                    result.append(matrix[top][i])
+        left = 0
+        right = m - 1
+        top = 0
+        bottom = n - 1
+        result = []
 
-                top +=1 
+        while top <= bottom and left <= right:
+            for i in range(left, right + 1):
+                result.append(matrix[top][i])
 
-                for i in range(top,bottom+1):
-                    result.append(matrix[i][right])
+            top += 1
 
-                right -=1 
+            for i in range(top, bottom + 1):
+                result.append(matrix[i][right])
 
-                if (top <= bottom):
-                    for i in range(right, left - 1, -1):
-                        result.append(matrix[bottom][i])
+            right -= 1
 
-                    bottom -= 1
+            if top <= bottom:
+                for i in range(right, left - 1, -1):
+                    result.append(matrix[bottom][i])
 
-                if (left <= right):
-                    for i in range(bottom, top - 1, -1):
-                        result.append(matrix[i][left])
+                bottom -= 1
 
-                    left += 1
-            
-            return result 
+            if left <= right:
+                for i in range(bottom, top - 1, -1):
+                    result.append(matrix[i][left])
+
+                left += 1
+
+        return result
